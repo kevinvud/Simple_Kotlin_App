@@ -10,12 +10,12 @@ import kotlinx.android.synthetic.main.video_row.view.*
  * Created by pogo on 1/16/18.
  */
 
-class MainAdapter: RecyclerView.Adapter<CustomeViewHolder>(){
+class MainAdapter(val homeFeed: HomeFeed): RecyclerView.Adapter<CustomeViewHolder>(){
 
     val videoTitles = listOf<String>("First", "Second", "3rd")
 
     override fun getItemCount(): Int {
-        return videoTitles.size
+        return homeFeed.videos.count()
 
     }
 
@@ -27,7 +27,8 @@ class MainAdapter: RecyclerView.Adapter<CustomeViewHolder>(){
 
     override fun onBindViewHolder(holder: CustomeViewHolder?, position: Int) {
         val videoTitles = videoTitles.get(position)
-        holder?.view?.textView_video_title?.text = videoTitles
+        val video = homeFeed.videos.get(position)
+        holder?.view?.textView_video_title?.text = video.name
     }
 
 
