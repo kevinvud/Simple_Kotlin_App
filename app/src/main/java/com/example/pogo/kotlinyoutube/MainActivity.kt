@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun fetchJson(){
+    private fun fetchJson(){
 
         val url = "https://api.letsbuildthatapp.com/youtube/home_feed"
         val request = Request.Builder().url(url).build()
